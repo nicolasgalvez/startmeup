@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  
+  <article id="page-{{ post.ID }}" class="post-type-page max-w-screen-xl mx-auto px-4 py-8">  
+    <header>
+      <h1>{{ post.title }}</h1>
+    </header>
+
+    <section id="content">
+      {{ get_blocks(post.post_content) }}
+    </section>
+
+  </article>
+  
+{% endblock %}

@@ -1,0 +1,37 @@
+{
+    "name": "project6/startmeup",
+    "description": "Wordpress library based on Timber.",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/svtaylor-p6/project6-starter-theme",
+    "authors": [
+        {
+            "name": "Steven Taylor",
+            "email": "steven@project6.com"
+        },
+        {
+            "name": "Johannes Schmidt",
+            "email": "mail@johannez.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "timber/timber": "1.*"
+    },
+    "require-dev": {
+        "kint-php/kint": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Startmeup\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "scripts": {
+        "theme": "Startmeup\\Composer\\Scripts::installTheme"
+    }
+}

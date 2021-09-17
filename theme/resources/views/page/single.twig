@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  
+  <article id="post-{{ post.ID }}" class="post-type-{{ post.post_type }} max-w-screen-xl mx-auto px-4 py-8" >
+    
+    <header>
+      <h1>{{ post.title }}</h1>
+    </header>
+
+    <section id="content">
+      {{ get_blocks(post.post_content) }}
+    </section>
+
+    <!-- comment box -->
+    <section class="comment-box">
+      <!-- comments -->
+      <div class="comments">
+          {% if post.comments %}
+        <h3> comments </h3>
+        {% for cmt in post.comments %}
+            {% include "comment.twig" with {comment:cmt} %}
+        {% endfor %}
+          {% endif %}
+      </div>
+
+      {% if post.comment_status == "closed" %}
+        <p> comments for this post are closed </p>
+      {% else %}
+          <!-- comment form -->
+          {% include "comment-form.twig" %}
+      {% endif %}
+    </section>
+  </article>
+  
+{% endblock %}

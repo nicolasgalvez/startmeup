@@ -13,7 +13,7 @@ class Scripts
     {
         $io = $event->getIO();
         $vendor_dir = $event->getComposer()->getConfig()->get('vendor-dir');
-        $source_dir = $vendor_dir . '/project6/startmeup/theme';
+        $source_dir = $vendor_dir . '/svtaylor-p6/startmeup/theme';
 
 
 

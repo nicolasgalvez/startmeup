@@ -1,9 +1,9 @@
 {
-    "name": "project6/startmeup",
+    "name": "svtaylor-p6/startmeup",
     "description": "Wordpress library based on Timber.",
     "license": "MIT",
     "type": "library",
-    "homepage": "https://github.com/svtaylor-p6/project6-starter-theme",
+    "homepage": "https://github.com/svtaylor-p6/startmeup",
     "authors": [
         {
             "name": "Steven Taylor",

@@ -10,7 +10,7 @@
  */
 
 $context = Timber::context();
-$startmeup_block = new Startmeup\Block($block);
+$startmeup_block = new Startmeup\Blocks\Block($block);
 $context['block'] = $startmeup_block;
 
 switch ($startmeup_block->block['name']) {

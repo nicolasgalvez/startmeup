@@ -2,6 +2,11 @@
   Extra style for the Wordpress backend.
 */
 
+/* Hide h1 option on header block */
+.components-toolbar-button[aria-label="Heading 1"] {
+  display: none !important;
+}
+
 /* purgecss start ignore */
 
 .wp-block {
@@ -35,3 +40,5 @@
 }
 
 /* purgecss end ignore */
+
+

@@ -56,38 +56,44 @@ class Site extends TimberSite
       return [];
     }
 
+  /**
+   * Render the core block with twig
+   * @param $block_content
+   * @param $block
+   * @return mixed
+   */
     public function renderBlock($block_content, $block)
     {
-        if (stristr($block['blockName'], 'acf')) {
-            return $block_content;
+
+      // ACF block? Forget about it
+      if (stristr($block['blockName'], 'acf')) {
+        return $block_content;
+      }
+      else if (stristr($block['blockName'], 'core') && trim($block_content)) {
+        $output = $block_content;
+
+        if ($this->templateExists('block/core.twig')) {
+          $context = Timber::context();
+
+          $classes = [
+            'block',
+            'block--' . sanitize_title($block['blockName'])
+          ];
+
+          $context['block'] = [
+            'name' => $block['blockName'],
+            'classes' => $classes,
+            'attributes' => $block['attrs'],
+            'content' => $block['blockName'] == 'core/shortcode'
+              ? do_shortcode($block['innerHTML'])
+              : $block_content
+          ];
+
+          $output = Timber::compile('block/core.twig', $context);
         }
-        else if ($block['innerHTML']) {
-            $output = $block_content;
 
-            if ($this->templateExists('block/core.twig')) {
-                $context = Timber::context();
-
-                if (!$block['blockName']) {
-                    $block['blockName'] = 'core/Classic';
-                }
-
-                $classes = [
-                    'block',
-                    'block--' . sanitize_title($block['blockName'])
-                ];
-
-                $context['block'] = [
-                    'name' => $block['blockName'],
-                    'classes' => $classes,
-                    'attributes' => $block['attrs'],
-                    'content' => $block['innerHTML']
-                ];
-
-                $output = Timber::compile('block/core.twig', $context);
-            }
-
-            return $output;
-        }
+        return $output;
+      }
     }
 
     /** This is where you add some context

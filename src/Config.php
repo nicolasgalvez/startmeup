@@ -36,16 +36,17 @@ class Config
     }
 
     /**
-    * Add a new post type to the site
-    * @param PostType $post_type
-    */
+     * Add a new post type to the site
+     * @param PostType $post_type
+     */
     public function registerPostType(PostType $post_type)
     {
-        add_action('init', function() use ($post_type) {
-            $post_type->register();
-        });
+      add_action('init', function() use ($post_type) {
+        $post_type->register();
+        $post_type->addShortCodes();
+      });
 
-        array_push($this->post_types, $post_type);
+      array_push($this->post_types, $post_type);
     }
 
     /**

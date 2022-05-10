@@ -96,8 +96,6 @@ switch ($startmeup_block->block['name']) {
     $context['title'] = get_field('header');
 
     break;
-
-
 }
 
 

@@ -29,7 +29,7 @@ mix.js('resources/js/app.js', 'public/js/app.js')
     .sourceMaps()
     .options({
       processCssUrls: false,
-      postCss: [ 
+      postCss: [
         tailwindcss('./tailwind.config.js'),
       ]
     })
@@ -42,6 +42,6 @@ mix.js('resources/js/app.js', 'public/js/app.js')
       whitelist: [
         'hr'
       ],
-      whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/]
+      whitelistPatterns: [/-active$/, /-enter$/, /-leave-to$/, /grid-cols-/]
     });
 

@@ -1,4 +1,8 @@
 module.exports = {
+  content: [
+    "./**/*.php",
+    "**/*.twig"
+  ],
   theme: {
     extend: {
       maxWidth: {
@@ -20,10 +24,6 @@ module.exports = {
     fontFamily: {
       'body': ['Noto Sans', 'Helvetica Neue', 'sans-serif']
     }
-  },
-  variants: {
-    visibility: ['responsive', 'hover', 'group-hover'],
-    backgroundColor: ['responsive', 'hover', 'group-hover']
   },
   plugins: []
 }

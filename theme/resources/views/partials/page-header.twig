@@ -1,0 +1,30 @@
+<header class="relative pt-2">
+  {% if image.id %}
+
+    <div class="header-image header-image-small sm:mb-24 lg:mb-32">
+      <div class="">
+        <picture>
+          <source srcset="{{ image.sizes['page-header'] }}, {{ image.sizes['page-header-lg'] }} 1.5x" media="(min-width: 800px)">
+          <source srcset="{{ image.sizes['page-header-sm'] }}, {{ image.sizes['page-header'] }} 1.5x" media="(min-width: 450px)">
+          <img src="{{ image.sizes['page-header'] }}" alt="{{ image.alt|replace({'"':''}) }}" class="">
+        </picture>
+    </div>
+    </div>
+
+    <div class="header-left">
+      <div class="sm:w-290 xl:w-35rem h-full">
+        <div class="flex min-h-sm-banner sm:h-full sm:justify-center items-center bg-{{ background_color }} curve text-center">
+        <h1 class="ml-8 sm:ml-4 {{ background_color == 'dark-blue' ? 'text-white' : '' }}">{{ title }}</h1>
+        </div>
+      </div>
+    </div>
+
+
+  {% else %}
+  <div class="mx-auto">
+    <h1 class="text-center">{{ title }}</h1>
+  </div>
+  {% endif %}
+  <!-- remove in production -->
+  <div class="hidden bg-light-blue bg-light-green bg-bright-green bg-orange bg-lavendar"></div>
+</header>

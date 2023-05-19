@@ -66,6 +66,8 @@ class Site extends TimberSite
     {
 
       // ACF block? Forget about it
+      $block['blockName'] = (isset($block['blockName'])) ? $block['blockName'] : '';
+
       if (stristr($block['blockName'], 'acf')) {
         return $block_content;
       }

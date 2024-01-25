@@ -1,0 +1,24 @@
+<div id="accordion-{{ block.id }}" class="faq-listing-container mx-4 lg:max-w-reading lg:mx-auto mb-8">
+  <div class="wordpress-preview">
+    {% for item in block.meta('accordion') %}
+      <li>{{ item.headline }}</li>
+    {% endfor %}
+  </div>
+  {% for item in block.meta('accordion') %}
+  <div class="faq-container bg-medium-gray border border-medium-gray mb-8" id="faq-{{ block.id }}{{ loop.index }}">
+    <div class="faq__question flex justify-between  cursor-pointer mx-6 py-2 no-underline active:text-black visited:text-black items-center leading-tight faq-listing text-20 lg:text-26 hover:underline">
+      {{ item.headline }}
+      <div class="icon__closed">
+        <button role="button" aria-haspopup="true" class="text-40 lg:text-52 pl-4 font-light font-body border-0 bg-medium-gray hover:border-0">+</button>
+      </div>
+      <div class="icon__open hidden">
+        <button role="button" aria-expanded="true" class="text-40 lg:text-52 pl-4 font-light border-0 bg-medium-gray hover:border-0">-</button>
+      </div>
+    </div>
+    <div class="faq__answer py-4 px-6 overflow-hidden hidden bg-white">
+      {{ item.body|raw|wpautop }}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+

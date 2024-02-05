@@ -1,32 +1,35 @@
 {
-    "name": "ebspca/ebspca",
-    "description": "Custom Wordpress site using P6 StartMeUp.",
-    "repositories":[
+    "name": "svtaylor-p6/startmeup",
+    "description": "Wordpress library based on Timber.",
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://github.com/svtaylor-p6/startmeup",
+    "authors": [
         {
-            "type":"composer",
-            "url":"https://wpackagist.org"
+            "name": "Steven Taylor",
+            "email": "steven@project6.com"
+        },
+        {
+            "name": "Johannes Schmidt",
+            "email": "mail@johannez.com"
         }
     ],
     "require": {
-        "svtaylor-p6/startmeup": "0.9.7.5",
-        "wpackagist-plugin/redirection": "^4.6",
-        "nesbot/carbon": "^2.36",
-        "wpackagist-plugin/acf-better-search": "^3.5"
+        "php": ">=7.2.0",
+        "timber/timber": "1.*"
     },
     "autoload": {
         "psr-4": {
-            "Ebspca\\": "src/Ebspca"
+            "Startmeup\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     },
     "scripts": {
         "theme": "Startmeup\\Composer\\Scripts::installTheme"
-    },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        },
-        "platform": {
-            "php": "8.2"
-        }
     }
 }
+

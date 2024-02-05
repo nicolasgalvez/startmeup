@@ -1,0 +1,12 @@
+{% set sizes = {
+    'small': 'h-4 md:h-8',
+    'medium': 'h-8 md:h-16',
+    'large': 'h-16 md:h-32'
+} %}
+
+<div id="{{ block.id }}" class="spacing-container {{ sizes[block.size] }}">
+    <div class="wordpress-preview">
+        Spacing: {{ block.size }}
+    </div>
+</div>
+<div class="hidden h-4 md:h-8 h-8 md:h-16 h-16 md:h-32"></div>

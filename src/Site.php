@@ -18,6 +18,12 @@ class Site extends TimberSite
         add_filter('timber/context', [$this, 'addToContext']);
         add_filter('timber/twig', [$this, 'addToTwig']);
         add_filter('render_block', [$this, 'renderBlock'], 10, 2);
+
+        // Set allowed blocks
+        add_filter('allowed_block_types_all', [$this, 'allowedBlocks']);
+
+        // Add custom blocks
+        add_action('acf/init', [$this, 'registerBlocks']);
     }
 
     /**
@@ -39,6 +45,94 @@ class Site extends TimberSite
     * Add custom image sizes.
     */
     public function addImageSizes() {}
+
+    public function registerBlocks()
+    {
+
+
+        acf_register_block_type([
+            'name' => 'intro-text',
+            'title' => __('Intro Text Block'),
+            'description' => __('Text block with slightly larger text.'),
+            'render_template' => 'block.php',
+            'category' => 'common',
+            'icon' => 'media-text',
+            'enqueue_style' => get_template_directory_uri() . '/public/css/backend.css',
+            'mode' => 'edit',
+            'supports' => [
+                'align' => false
+            ]
+        ]);
+
+        acf_register_block_type([
+            'name' => 'button-block',
+            'title' => __('Button Block'),
+            'render_template' => 'block.php',
+            'category' => 'common',
+            'icon' => 'button',
+            'mode' => 'edit',
+            'enqueue_style' => get_template_directory_uri() . '/public/css/backend.css',
+            'supports' => [
+                'align' => false
+            ]
+        ]);
+
+        acf_register_block_type([
+            'name' => 'video-slider-block',
+            'title' => __('Video Slider Block'),
+            'description' => __('Video Slider Blocks.'),
+            'render_template' => 'block.php',
+            'category' => 'common',
+            'icon' => 'video-alt3',
+            'enqueue_style' => get_template_directory_uri() . '/public/css/backend.css',
+            'mode' => 'edit',
+            'supports' => [
+                'align' => false
+            ]
+        ]);
+
+
+        acf_register_block_type([
+            'name' => 'spacing',
+            'title' => __('Spacing'),
+            'render_template' => 'block.php',
+            'category' => 'common',
+            'icon' => 'image-flip-vertical',
+            'enqueue_style' => get_template_directory_uri() . '/public/css/backend.css',
+            'mode' => 'edit',
+            'supports' => [
+                'align' => false
+            ]
+        ]);
+
+    }
+
+    /**
+     * Set allowed Gutenberg blocks
+     */
+    public function allowedBlocks()
+    {
+        return [
+            'acf/intro-text',
+            'acf/button-block',
+            'acf/video-slider-block',
+            'acf/tabbed-content-block',
+            'acf/spacing',
+            'core/table',
+            'core/paragraph',
+            'core/shortcode',
+            'core/heading',
+            'core/list',
+            'core/list-item',
+            'core/image',
+            'core/separator',
+            'core/button',
+            'core/html',
+            'core/table',
+            'core/embed',
+            'core/columns',
+        ];
+    }
 
     /**
     * Sent Javascript variables to the front end.

@@ -1,0 +1,40 @@
+<div id="video-slider-{{ block.id }}" class="video-slider max-w-container mx-auto relative">
+  <h2 class="text-center py-8">
+   {{ block.heading }}
+  </h2>
+  <div class="mx-4 lg:mx-auto lg:px-14">
+  <div class="video-slider__track"  data-glide-el="track">
+    <div class="video-slider__slides">
+      {% for post in Post(posts) %}
+        {% set i = loop.index0 %}
+        <div class="relative mr-4">
+
+          <a href="{{ post.link }}" class="block w-full relative md:w-300 mb-4" aria-label="{{ post.title }}">
+            <img src="{{ thumbnails[i] }}" class="w-full  object-contain" alt="{{ post.title }}">
+            <div class="absolute play-button-wrapper">
+              <img src="{{ site.theme.link }}/public/images/play_button.svg" class="play-button">
+            </div>
+          </a>
+          <div class="md:w-300">
+            {{ post.video_slider_caption }}
+          </div>
+
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+
+  </div>
+  </div>
+  <div class="bullet-wrapper pb-16">
+    <div class="relative flex justify-center items-center" data-glide-el="controls">
+      <button class="slide__arrow slide__arrow--left prev" tabindex= "0" aria-label="Left Button"></button>
+      <div class="append-dots-video"></div>
+      <button class="slide__arrow slide__arrow--right next" tabindex= "0" aria-label="Right Button"></button>
+    </div>
+  </div>
+
+</div>

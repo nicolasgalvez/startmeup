@@ -6,14 +6,17 @@
   background: linear-gradient(0deg, #000, transparent);
 }
 
-:is(a, button, input, textarea, summary ):focus {
-  outline: var(--outline-size) var(--outline-style) var(--outline-color);
-  outline-offset: var(--outline-offset, var(--outline-size));
+:is(a, button, input, textarea, summary, #menuToggle, #glaucoma-logo, #search-trigger) {
+  --outline-size: max(2px, 0.08em);
+  // --outline-style: solid;
+  --outline-style: none;
+  --outline-color: currentColor;
 }
 
-:is(a, button, input, textarea, summary ):focus-visible {
+:is(a, button, input, textarea, summary, #search-trigger ):focus {
   outline: var(--outline-size) var(--outline-style) var(--outline-color);
   outline-offset: var(--outline-offset, var(--outline-size));
+  text-decoration: underline;
 }
 
 :is(a, button, input, textarea, summary):focus:not(:focus-visible) {

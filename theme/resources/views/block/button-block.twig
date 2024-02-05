@@ -1,0 +1,9 @@
+{% set align = {
+  'center': 'justify-center',
+  'left': 'justify-start',
+  'right': 'justify-end'
+} %}
+
+<div id="button-{{ block.id }}" class="flex {{ align[block.alignment] }} button-block lg:max-w-reading mb-8 mx-auto">
+  <a href="{{ block.link.url }}" target="{{ block.link.target }}" rel="noreferrer" class="block btn mx-4">{{ block.link.title }}</a>
+</div>

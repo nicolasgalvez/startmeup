@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=8.1",
-        "timber/timber": "^2.1.0.*"
+        "timber/timber": "^2"
     },
     "autoload": {
         "psr-4": {
